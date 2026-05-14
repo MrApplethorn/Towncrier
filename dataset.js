@@ -3,3 +3,20 @@ const keywords = ["Hideous", "Humorous", "Impoverished", "Mysterious", "Notoriou
 const sexuality = ["Straight", "Gay/Lesbian", "Bisexual", "Asexual"];
 const gender = ["Male", "Female", "Non-Binary"];
 const relationship = ["Married", "Single", "In a Relationship"];
+
+// Helper function to get valid sexualities based on gender
+function getValidSexuality(selectedGender) {
+  if (selectedGender === "Non-Binary") {
+    // Non-binary can be Straight, Bisexual, or Asexual
+    return ["Straight", "Bisexual", "Asexual"];
+  }
+  return sexuality; // Male and Female can be any sexuality
+}
+
+// Helper function to format sexuality based on gender
+function formatSexuality(selectedSexuality, selectedGender) {
+  if (selectedSexuality === "Gay/Lesbian" && selectedGender === "Female") {
+    return "Lesbian";
+  }
+  return selectedSexuality;
+}
