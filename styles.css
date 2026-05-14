@@ -23,20 +23,19 @@ body {
       }
 
       .reels {
-          display: flex;
-          gap: 2rem;
-          justify-content: center;
-          margin: 2rem 0;
-        }
-        
-        .reels:first-of-type {
-          gap: 12px;
-          margin-bottom: 2rem;
-        }
-        
-        .reels:last-of-type {
-          margin-top: 2rem;
-        }
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.reels:first-of-type {
+  margin-bottom: 2rem;
+}
+
+.reels:last-of-type {
+  margin-top: 2rem;
+}
         
       .reel-outer {
         background: #18181b;
