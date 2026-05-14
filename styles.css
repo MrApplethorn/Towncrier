@@ -28,7 +28,7 @@ body {
         justify-content: center;
         margin: 2rem 0;
       }
-
+        
       .reel-outer {
         background: #18181b;
         border: 2px solid #52525b;
@@ -38,10 +38,10 @@ body {
         overflow: hidden;
         position: relative;
       }
-
+        
       .reel-outer.wide {
         width: 100%;
-        margin-top: 12px;
+        margin-top: 0;
       }
 
       .reel-outer::before,
@@ -161,14 +161,4 @@ body {
         border: 0;
         border-top: 1px solid #52525b;
         margin: 1.5rem 0 2rem;
-      }
-      .reels {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        margin: 2rem 0;
-      }
-        
-      .reels:nth-of-type(2) {
-        margin-top: 2rem;
       }
