@@ -10,173 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <style>
-      body {
-        font-family: 'Germania One', sans-serif;
-        background-color: #27272a;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-      }
-
-      .container {
-        width: 90%;
-        max-width: 500px;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      .reels {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        margin: 2rem 0;
-      }
-
-      .reel-outer {
-        background: #18181b;
-        border: 2px solid #52525b;
-        border-radius: 10px;
-        width: 48%;
-        height: 80px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .reel-outer.wide {
-        width: 100%;
-        margin-top: 12px;
-      }
-
-      .reel-outer::before,
-      .reel-outer::after {
-        content: '';
-        position: absolute;
-        left: 0; right: 0;
-        height: 22px;
-        z-index: 2;
-        pointer-events: none;
-      }
-
-      .reel-outer::before {
-        top: 0;
-        background: linear-gradient(to bottom, #18181b, transparent);
-      }
-
-      .reel-outer::after {
-        bottom: 0;
-        background: linear-gradient(to top, #18181b, transparent);
-      }
-
-      .reel-inner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .reel-item {
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        color: #fff;
-        padding: 0 8px;
-        text-align: center;
-        line-height: 1.2;
-        flex-shrink: 0;
-      }
-
-      button {
-        width: 100%;
-        padding: 15px;
-        font-size: 1.2rem;
-        font-family: 'Germania One', sans-serif;
-        border-radius: 10px;
-        border: none;
-        background-color: #e40712;
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.1s ease;
-      }
-
-      button:active {
-        transform: scale(0.98);
-      }
-
-      button:hover {
-        background-color: #232b2f;
-      }
-
-      button:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-      }
-
-      @media (min-width: 600px) {
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        .reel-item {
-          font-size: 1.4rem;
-        }
-      }
-      
-      .link-buttons {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        margin: 1rem 0;
-      }
-
-      .link {
-        box-sizing: border-box;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex: 1;
-        max-width: 180px;
-        padding: 10px 14px;
-        font-size: 1rem;
-        font-family: 'Germania One', sans-serif;
-        border-radius: 10px;
-        border: 2px solid #fff;
-        background-color: #000;
-        color: #fff;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.3s ease, transform 0.1s ease;
-      }
-
-      .link:hover {
-        background-color: #18181b;
-      }
-
-      .link:active {
-        transform: scale(0.98);
-      }
-      
-      .section-divider {
-        width: 100%;
-        border: 0;
-        border-top: 1px solid #52525b;
-        margin: 1.5rem 0 2rem;
-      }
-    </style>
+    
+    <link rel="stylesheet" href="styles.css">
   </head>
   
   <body>
@@ -206,14 +41,10 @@
 
       <button id="generateButton">Generate NPC</button>
     </div>
+    
+    <script src="dataset.js"></script>
 
     <script>
-      const traits = ["Child", "Genius", "Zealot", "Academic", "Adventurer", "Businessperson", "Criminal", "Entertainer", "Soldier", "Cultist", "Guild Member", "Politician", "Royalty", "Artist", "Counselor", "Crafter", "Dilettante", "Laborer", "Leader", "Medic", "Merchant", "Driver", "Scholar", "Scientist", "Warrior", "Wizard", "Brigand", "Con Artist", "Torturer", "Rebel", "Crime Lord", "Captain", "Judge", "Thief", "Puppet-Master", "Governor", "King", "Noble", "Priest", "Anarchist", "Conspirator", "Gang Leader", "Interrogator", "Blackmailer", "Burglar", "Shaman", "Tactician", "Prankster", "Assassin", "Busybody", "Heir", "Hunter", "Cult Leader", "Immortal", "Nurse", "Necromancer", "Theater Owner", "Ghost", "Charmer", "Acolyte", "Enforcer", "Relic Hunter", "Loner", "Pirate", "Thug", "Queen", "Recluse", "Pretender", "Former Hero", "Philanthropist", "Mascot", "Benefactor", "Spy", "Hustler", "Prostitute", "Blacksmith", "Guardian", "Librarian", "Miner", "Senator", "Purveyor", "Archivist", "Sculptor", "Patriot", "Widow", "Preacher", "Treasure Hunter", "Successor", "Innkeeper", "Mage", "Hero", "Hedge Wizard", "Farmer", "Visionary", "Bureaucrat", "Negotiator", "Investigator", "Guard", "Wanderer", "Courtier", "Constable", "General", "Sage", "Advisor", "Prodigy", "Warden", "Courier", "Smuggler", "Socialite", "Quartermaster", "Harbormaster", "Debutante", "Actor", "Seamstress", "Performer", "Surgeon", "Freedom Fighter", "Cat Burglar", "Researcher", "Reporter", "Tribesperson", "Veteran", "Healer", "Minstrel", "Spirit", "Apothecary", "Fortune Teller", "Boatman", "Witch", "Carpenter", "Gladiator", "Diviner", "Falconer", "Imposter", "Chosen One", "Lawyer", "Singer", "Fence", "Friar", "Shopkeeper", "Sheriff", "Oracle", "Seer", "Bounty Hunter", "Butler", "Trapfinder", "Weaponsmith", "Privateer", "Explorer", "Dancer", "Knight", "Prince(ss)", "Scout", "Silversmith", "Nun", "Financier", "Broker", "Patron", "Prophet"];
-      const keywords = ["Hideous", "Humorous", "Impoverished", "Mysterious", "Notorious", "Power Hungry", "Saintly", "Wealthy", "Genius", "Eccentric", "Famous", "Focal", "Primal", "Religious", "Charming", "Abhorrent", "Aggressive", "Ancient", "Magical", "Beautiful", "Outdoors", "Academic", "Ambitious", "Stealthy", "Anxious", "Arrogant", "Bitter", "Bloodthirsty", "Blunt", "Bold", "Brilliant", "Calculating", "Callous", "Capricious", "Cautious", "Clever", "Corrupt", "Cowardly", "Cunning", "Curious", "Defiant", "Devoted", "Disturbed", "Dogmatic", "Enigmatic", "Fair", "Foolish", "Fussy", "Garrulous", "Greedy", "Grim", "Hedonistic", "Honorable", "Hotheaded", "Humble", "Idealistic", "Ignorant", "Impish", "Impressionable", "Incompetent", "Intense", "Intimidating", "Jaded", "Jovial", "Judgmental", "Kind", "Kinky", "Lecherous", "Lively", "Macho", "Mean", "Mild", "Miserly", "Naïve", "Noble", "Nonconformist", "Nosy", "Obedient", "Oblivious", "Oily", "Optimistic", "Passionate", "Pessimistic", "Philosophical", "Poised", "Proud", "Quaint", "Quiet", "Rakish", "Rebellious", "Remorseful", "Ruthless", "Scheming", "Sensuous", "Shady", "Sly", "Tactless", "Tough", "Unlucky", "Unpredictable", "Unscrupulous", "Weak-Willed", "Weird", "Wise"];
-      const sexuality = ["Straight", "Gay/Lesbian", "Bisexual", "Asexual"];
-      const gender = ["Male", "Female", "Non-Binary"];
-      const relationship = ["Married", "Single", "In a Relationship"];
-
       const generateButton = document.getElementById("generateButton");
 
       function buildReel(innerEl, list, finalIndex, spinDuration) {
