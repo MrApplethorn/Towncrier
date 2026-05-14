@@ -81,21 +81,21 @@
         // Create combinations of all three categories
         const combinations = [];
         const SPIN_COUNT = 30;
-    
+      
         // Generate random combinations for spinning
         for (let i = 0; i < SPIN_COUNT; i++) {
           const g = gender[Math.floor(Math.random() * gender.length)];
           const validSexualities = getValidSexuality(g);
           const s = validSexualities[Math.floor(Math.random() * validSexualities.length)];
           const r = relationship[Math.floor(Math.random() * relationship.length)];
-          const formattedSexuality = formatSexuality(s, g);
-          combinations.push(`${formattedSexuality} ${g}, ${r}`);
+          const formattedDisplay = formatSexualityAndGender(s, g);
+          combinations.push(`${formattedDisplay}, ${r}`);
         }
         
         // Add the final combination
-        const formattedFinalSexuality = formatSexuality(finalSexuality, finalGender);
-        combinations.push(`${formattedFinalSexuality} ${finalGender}, ${finalRelationship}`);
-    
+        const formattedFinalDisplay = formatSexualityAndGender(finalSexuality, finalGender);
+        combinations.push(`${formattedFinalDisplay}, ${finalRelationship}`);
+      
         innerEl.innerHTML = '';
         combinations.forEach(text => {
           const div = document.createElement('div');
@@ -103,16 +103,16 @@
           div.textContent = text;
           innerEl.appendChild(div);
         });
-    
+      
         // Start at top, animate to final item
         innerEl.style.transition = 'none';
         innerEl.style.transform = 'translateY(0)';
-    
+      
         const targetY = -(SPIN_COUNT * 80);
-    
+      
         // Force reflow before animating
         innerEl.getBoundingClientRect();
-    
+      
         innerEl.style.transition = `transform ${spinDuration}ms cubic-bezier(0.25, 0.1, 0.2, 1)`;
         innerEl.style.transform = `translateY(${targetY}px)`;
       }
