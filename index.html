@@ -162,11 +162,11 @@
       function updateRaceDescription(selectedRace) {
         const descriptionEl = document.getElementById('race-description');
         const descriptions = {
-          "Beast Folk": "A humanoid creature with animalistic features, possessing both human intellect and bestial traits.",
-          "Big Folk": "A tall, imposing figure of great stature and physical presence.",
-          "Fey Folk": "An otherworldly being touched by magic and the realm of fey, often appearing delicate but unnaturally beautiful.",
-          "Planar Traveler": "A wanderer from beyond this realm, bearing the mark of planar travel and otherworldly knowledge.",
-          "Smallfolk": "A diminutive humanoid, small in stature but often possessed of great courage and cunning."
+          "Beast Folk": "Examples: Aarakocra, Centaur, Dragonborn, Giff, Grung, Hadozee, Harengon, Kenku, Kobold, Leonin, Lizardfolk, Locathah, Loxodon, Minotaur, Owlin, Satyr, Shifter, Tabaxi, Thri-kreen, Tortle, or Yuan-ti.",
+          "Big Folk": "Examples: Goliath, Human, Orc, Triton.",
+          "Fey Folk": "Examples: Elf, Changeling, Bugbear, Fairy, Firbolg, Goblin, Hobgoblin.",
+          "Planar Traveler": "Examples: Aasimar, Tiefling, Genasi, Gith, Plasmoid.",
+          "Smallfolk": "Examples: Dwarf, Gnome, Halfling."
         };
         descriptionEl.textContent = descriptions[selectedRace] || "";
       }
