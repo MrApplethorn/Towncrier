@@ -256,11 +256,11 @@
           const s = sexuality[Math.floor(Math.random() * sexuality.length)];
           const g = gender[Math.floor(Math.random() * gender.length)];
           const r = relationship[Math.floor(Math.random() * relationship.length)];
-          combinations.push(`${s} ${g} ${r}`);
+          combinations.push(`${s} ${g}, ${r}`);
         }
         
         // Add the final combination
-        combinations.push(`${finalSexuality} ${finalGender} ${finalRelationship}`);
+        combinations.push(`${finalSexuality} ${finalGender}, ${finalRelationship}`);
 
         innerEl.innerHTML = '';
         combinations.forEach(text => {
@@ -330,7 +330,7 @@
 
         const personalDiv = document.createElement('div');
         personalDiv.className = 'reel-item';
-        personalDiv.textContent = `${initialSexuality} ${initialGender} ${initialRelationship}`;
+        personalDiv.textContent = `${initialSexuality} ${initialGender}, ${initialRelationship}`;
         innerPersonal.appendChild(personalDiv);
       })();
     </script>
