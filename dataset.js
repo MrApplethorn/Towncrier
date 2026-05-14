@@ -7,16 +7,32 @@ const relationship = ["married", "single", "divorced", "widowed", "betrothed", "
 // Helper function to get valid sexualities based on gender
 function getValidSexuality(selectedGender) {
   if (selectedGender === "non-binary") {
-    // Non-binary can be Straight, Bisexual, or Asexual
-    return ["Straight", "Bisexual", "Asexual"];
+    // Non-binary can only be Asexual or nothing (represented as empty string)
+    return ["Asexual", ""];
   }
   return sexuality; // Male and Female can be any sexuality
 }
 
-// Helper function to format sexuality based on gender
-function formatSexuality(selectedSexuality, selectedGender) {
-  if (selectedSexuality === "Gay" && selectedGender === "female") {
+// Helper function to format sexuality and gender based on gender
+function formatSexualityAndGender(selectedSexuality, selectedGender) {
+  if (selectedGender === "female" && selectedSexuality === "Gay") {
     return "Lesbian";
   }
-  return selectedSexuality;
+  
+  // If Non-Binary with empty sexuality, just return "Non-Binary"
+  if (selectedGender === "non-binary" && selectedSexuality === "") {
+    return "Non-Binary";
+  }
+  
+  // If Non-Binary with Asexual, return "Asexual Non-Binary"
+  if (selectedGender === "non-binary" && selectedSexuality === "Asexual") {
+    return "Asexual Non-Binary";
+  }
+  
+  // For others, return sexuality and gender
+  if (selectedSexuality === "") {
+    return selectedGender;
+  }
+  
+  return `${selectedSexuality} ${selectedGender}`;
 }
