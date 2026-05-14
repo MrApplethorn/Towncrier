@@ -170,3 +170,17 @@ body {
         border-top: 1px solid #52525b;
         margin: 1.5rem 0 2rem;
       }
+        .race-description {
+          margin-top: 1rem;
+          padding: 1rem;
+          background-color: #18181b;
+          border: 2px solid #52525b;
+          border-radius: 10px;
+          font-size: 1rem;
+          line-height: 1.5;
+          min-height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
