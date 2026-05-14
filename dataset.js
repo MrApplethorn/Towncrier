@@ -3,7 +3,7 @@ const keywords = ["Hideous", "Humorous", "Impoverished", "Mysterious", "Notoriou
 const sexuality = ["Straight", "Gay", "Bisexual", "Asexual"];
 const gender = ["male", "female", "non-binary"];
 const relationship = ["married", "single", "divorced", "widowed", "betrothed", "dating", "in a romantic relationship"];
-const race = ["Beast Folk", "Big Folk", "Fey Folk", "Planar Traveler", "Smallfolk"];
+const race = ["Beast Folk", "Big Folk e.g.: human, orc, goliath, triton", "Fey Folk", "Planar Traveler", "Smallfolk e.g.: dwarf, gnome, halfling"];
 
 // Helper function to get valid sexualities based on gender
 function getValidSexuality(selectedGender) {
