@@ -39,16 +39,14 @@
         </div>
       </div>
 
-      <div class="reels">
-        <div class="reel-outer wide" id="reel-race">
-          <div class="reel-inner" id="inner-race"></div>
-        </div>
-      </div>
-
       <div class="reel-wrapper">
-        <button class="details-toggle" id="race-details-toggle">Details</button>
-        <div class="details-panel" id="race-details">
-          <div id="race-description"></div>
+        <div class="reels">
+          <div class="reel-outer wide" id="reel-race">
+            <div class="reel-inner" id="inner-race"></div>
+            <div class="reel-details-overlay" id="race-details-overlay">
+              <div id="race-description"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -59,8 +57,6 @@
 
     <script>
       const generateButton = document.getElementById("generateButton");
-      const detailsToggle = document.getElementById('race-details-toggle');
-      const detailsPanel = document.getElementById('race-details');
       let finalRaceIndex = 0;
 
       function buildReel(innerEl, list, finalIndex, spinDuration) {
@@ -165,9 +161,8 @@
         // Update race description when spinning completes
         setTimeout(() => {
           document.getElementById('race-description').textContent = race[finalRaceIndex].description;
-          // Close the panel if it's open
-          detailsToggle.classList.remove('open');
-          detailsPanel.classList.remove('open');
+          const overlay = document.getElementById('race-details-overlay');
+          overlay.classList.remove('show');
         }, 3300);
 
         setTimeout(() => {
@@ -175,9 +170,10 @@
         }, 3300);
       }
 
-      detailsToggle.addEventListener('click', () => {
-        detailsToggle.classList.toggle('open');
-        detailsPanel.classList.toggle('open');
+      // Toggle overlay on race reel click
+      document.getElementById('reel-race').addEventListener('click', () => {
+        const overlay = document.getElementById('race-details-overlay');
+        overlay.classList.toggle('show');
       });
 
       generateButton.addEventListener("click", spinReels);
