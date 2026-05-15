@@ -149,11 +149,6 @@
         buildCombinationReel(innerPersonal, finalSexuality, finalGender, relationship[finalRelationshipIndex], 2800);
         buildReel(innerRace, race, finalRaceIndex, 3200);
 
-        // Update description after race reel finishes spinning
-        setTimeout(() => {
-          updateRaceDescription(race[finalRaceIndex]);
-        }, 3200);
-
         setTimeout(() => {
           generateButton.disabled = false;
         }, 3300);
