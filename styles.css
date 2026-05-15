@@ -45,6 +45,7 @@ body {
         height: 80px;
         overflow: hidden;
         position: relative;
+        cursor: pointer;
       }
         
       .reel-outer.wide {
@@ -79,6 +80,49 @@ body {
         right: 0;
         display: flex;
         flex-direction: column;
+      }
+
+      .reel-item {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: #fff;
+        padding: 0 8px;
+        text-align: center;
+        line-height: 1.2;
+        flex-shrink: 0;
+      }
+
+      .reel-details-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(24, 24, 27, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 8px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      .reel-details-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #race-description {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: center;
+        color: #fff;
       }
 
       button {
@@ -147,76 +191,12 @@ body {
         border-top: 1px solid #52525b;
         margin: 1.5rem 0 2rem;
       }
-      .reel-item {
-        height: 80px;
+
+      .reel-wrapper {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        color: #fff;
-        padding: 0 8px;
-        text-align: center;
-        line-height: 1.2;
-        flex-shrink: 0;
+        gap: 6px;
       }
-        
-      .reel-item-name {
-        font-weight: bold;
-        margin-bottom: 8px;
-      }
-        
-      .reel-item-description {
-        font-size: 0.7em;
-        opacity: 0.8;
-      }
-
-.reel-wrapper {
-  position: relative;
-  margin-top: 2rem;
-}
-
-.details-toggle {
-  width: 100%;
-  padding: 10px;
-  font-size: 1rem;
-  background-color: #3f3f46;
-  border: 2px solid #52525b;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.details-toggle:hover {
-  background-color: #52525b;
-}
-
-.details-toggle.open {
-  background-color: #e40712;
-  border-radius: 10px 10px 0 0;
-}
-
-.details-panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  border: 2px solid #52525b;
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  background-color: #18181b;
-  padding: 0;
-}
-
-.details-panel.open {
-  max-height: 200px;
-  padding: 1rem;
-}
-
-#race-description {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  text-align: center;
-}
 
       @media (min-width: 600px) {
         h1 {
