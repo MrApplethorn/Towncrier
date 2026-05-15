@@ -3,7 +3,11 @@ const keywords = ["Hideous", "Humorous", "Impoverished", "Mysterious", "Notoriou
 const sexuality = ["Straight", "Gay", "Bisexual", "Asexual"];
 const gender = ["male", "female", "non-binary"];
 const relationship = ["married", "single", "divorced", "widowed", "betrothed", "dating", "in a romantic relationship"];
-const race = [`Beast Folk \n\n e.g., aarakocra, centaur, dragonborn, giff, grung, hadozee, harengon, kobold, lizardfolk, minotaur, satyr, tabaxi`, `Big Folk \n\n e.g., goliath, human, orc, triton`, `Fey Folk \n\n e.g., elf, changeling, bugbear, fairy, firbolg, goblin, hobgoblin`, `Planar Traveler \n\n e.g., Aasimar, Tiefling, Genasi, Gith, Plasmoid`, `Smallfolk \n\n e.g., dwarf, gnome, halfling`];
+const race = [{name: "Beast Folk", description: "e.g., aarakocra, centaur, dragonborn, giff, grung, hadozee, harengon, kobold, lizardfolk, minotaur, satyr, tabaxi"},
+              {name: "Big Folk", description: "e.g., goliath, human, orc, triton"},
+              {name: "Fey Folk", description: "e.g., elf, changeling, bugbear, fairy, firbolg, goblin, hobgoblin"},
+              {name: "Planar Traveler", description: "e.g., Aasimar, Tiefling, Genasi, Gith, Plasmoid"},
+              {name: "Smallfolk", description: "e.g., dwarf, gnome, halfling"}];
 
 // Helper function to get valid sexualities based on gender
 function getValidSexuality(selectedGender) {
