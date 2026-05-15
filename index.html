@@ -63,10 +63,17 @@
         items.push(list[finalIndex]);
 
         innerEl.innerHTML = '';
-        items.forEach(text => {
+        items.forEach(item => {
           const div = document.createElement('div');
           div.className = 'reel-item';
-          div.textContent = text;
+          
+          // Check if item is an object (race) or a string (other lists)
+          if (typeof item === 'object' && item.name) {
+            div.innerHTML = `<strong>${item.name}</strong><br><small>${item.description}</small>`;
+          } else {
+            div.textContent = item;
+          }
+          
           innerEl.appendChild(div);
         });
 
