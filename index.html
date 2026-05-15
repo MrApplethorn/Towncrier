@@ -69,7 +69,16 @@
           
           // Check if item is an object (race) or a string (other lists)
           if (typeof item === 'object' && item.name) {
-            div.innerHTML = `<strong>${item.name}</strong><br><small>${item.description}</small>`;
+            const nameEl = document.createElement('div');
+            nameEl.className = 'reel-item-name';
+            nameEl.textContent = item.name;
+            
+            const descEl = document.createElement('div');
+            descEl.className = 'reel-item-description';
+            descEl.textContent = item.description;
+            
+            div.appendChild(nameEl);
+            div.appendChild(descEl);
           } else {
             div.textContent = item;
           }
