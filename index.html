@@ -25,25 +25,30 @@
       <hr class="section-divider">
       
       <div class="reel-wrapper">
-      <div class="reels">
-        <div class="reel-outer" id="reel-keyword">
-          <div class="reel-inner" id="inner-keyword"></div>
-        </div>
-        <div class="reel-outer" id="reel-trait">
-          <div class="reel-inner" id="inner-trait"></div>
-        </div>
-        <div class="reel-outer wide" id="reel-personal">
-          <div class="reel-inner" id="inner-personal"></div>
-        </div>
+        <div class="reels">
           <div class="reel-outer wide" id="reel-race">
             <div class="reel-inner" id="inner-race"></div>
             <div class="reel-details-overlay" id="race-details-overlay">
               <div id="race-description"></div>
             </div>
           </div>
+          <div class="reel-outer" id="reel-keyword">
+            <div class="reel-inner" id="inner-keyword"></div>
+          </div>
+          <div class="reel-outer" id="reel-trait">
+            <div class="reel-inner" id="inner-trait"></div>
+          </div>
+          <div class="reel-outer wide" id="reel-personal">
+            <div class="reel-inner" id="inner-personal"></div>
+          </div>
+          <div class="reel-outer wide" id="reel-alignment">
+            <div class="reel-inner" id="inner-alignment"></div>
+            <div class="reel-details-overlay" id="alignment-details-overlay">
+              <div id="alignment-description"></div>
+            </div>
+          </div>
         </div>
       </div>
-
       <button id="generateButton">Generate NPC</button>
     </div>
     
@@ -130,7 +135,7 @@
 
       function spinReels() {
         generateButton.disabled = true;
-
+      
         const finalTraitIndex = Math.floor(Math.random() * traits.length);
         const finalKeywordIndex = Math.floor(Math.random() * keywords.length);
         const finalGenderIndex = Math.floor(Math.random() * gender.length);
@@ -140,33 +145,41 @@
         const finalSexuality = validSexualities[finalSexualityIndex];
         const finalRelationshipIndex = Math.floor(Math.random() * relationship.length);
         finalRaceIndex = Math.floor(Math.random() * race.length);
-
+        const finalAlignmentIndex = Math.floor(Math.random() * alignment.length); // Add this line
+      
         const innerKeyword = document.getElementById('inner-keyword');
         const innerTrait = document.getElementById('inner-trait');
         const innerPersonal = document.getElementById('inner-personal');
         const innerRace = document.getElementById('inner-race');
-
+        const innerAlignment = document.getElementById('inner-alignment'); // Add this line
+      
         // Keyword reel stops first, trait reel stops a bit later, personal reel stops last
         buildReel(innerKeyword, keywords, finalKeywordIndex, 1800);
         buildReel(innerTrait, traits, finalTraitIndex, 2400);
         buildCombinationReel(innerPersonal, finalSexuality, finalGender, relationship[finalRelationshipIndex], 2800);
         buildReel(innerRace, race, finalRaceIndex, 3200);
-
+        buildReel(innerAlignment, alignment, finalAlignmentIndex, 3600); // Add this line
+      
         // Update race description when spinning completes
         setTimeout(() => {
           document.getElementById('race-description').textContent = race[finalRaceIndex].description;
           const overlay = document.getElementById('race-details-overlay');
           overlay.classList.remove('show');
-        }, 3300);
-
+          
+          // Add alignment description update
+          document.getElementById('alignment-description').textContent = alignment[finalAlignmentIndex].description;
+          const alignmentOverlay = document.getElementById('alignment-details-overlay');
+          alignmentOverlay.classList.remove('show');
+        }, 3700); // Increase timeout to account for longer spin
+      
         setTimeout(() => {
           generateButton.disabled = false;
-        }, 3300);
+        }, 3700); // Match the timeout above
       }
-
-      // Toggle overlay on race reel click
-      document.getElementById('reel-race').addEventListener('click', () => {
-        const overlay = document.getElementById('race-details-overlay');
+      
+      // Add click handler for alignment reel
+      document.getElementById('reel-alignment').addEventListener('click', () => {
+        const overlay = document.getElementById('alignment-details-overlay');
         overlay.classList.toggle('show');
       });
 
