@@ -12,15 +12,15 @@ const race = [
   {name: "Outsider*", description: "*Aasimar, Tiefling, Genasi, Gith, or Plasmoid"},
   {name: "Smallfolk*", description: "*Dwarf, Gnome, or Halfling"}];
 const alignment = [
-  {name: "Lawful Good*", description: "*Favors laws above people, and puts other's needs higher than their own."},
+  {name: "Lawful Good*", description: "*Favors laws above people. Puts other's needs higher than their own."},
   {name: "Neutral Good*", description: "*Has no preference between laws or people. Puts other's needs higher than their own."},
-  {name: "Chaotic Good*", description: "*Favors people above laws, and puts other's needs higher than their own."},
-  {name: "Lawful Neutral*", description: "*Favors laws above people. Puts their needs about as high as those of others."},
-  {name: "True Neutral*", description: "*Has no preference between laws or people. Puts their needs about as high as those of others."},
-  {name: "Chaotic Neutral*", description: "*Favor's people above laws. Puts their needs about as high as those of others."},
-  {name: "Lawful Evil*", description: "*Favor's law above people. and puts their own needs higher than those of others."},
-  {name: "Neutral Evil*", description: "*Has no preference between laws or people. and puts their own needs higher than those of others."},
-  {name: "Chaotic Evil*", description: "*Favor's people above laws. and puts their own needs higher than those of others."}];
+  {name: "Chaotic Good*", description: "*Favors people above laws. Puts other's needs higher than their own."},
+  {name: "Lawful Neutral*", description: "*Favors laws above people. Puts their own needs about as high as those of others."},
+  {name: "True Neutral*", description: "*Has no preference between laws or people. Puts their own needs about as high as those of others."},
+  {name: "Chaotic Neutral*", description: "*Favor's people above laws. Puts their own needs about as high as those of others."},
+  {name: "Lawful Evil*", description: "*Favor's law above people Puts their own needs higher than those of others."},
+  {name: "Neutral Evil*", description: "*Has no preference between laws or people. Puts their own needs higher than those of others."},
+  {name: "Chaotic Evil*", description: "*Favor's people above laws. puts their own needs higher than those of others."}];
 
 // Helper function to get valid sexualities based on gender
 function getValidSexuality(selectedGender) {
