@@ -154,23 +154,22 @@
         const innerAlignment = document.getElementById('inner-alignment'); // Add this line
       
         // Keyword reel stops first, trait reel stops a bit later, personal reel stops last
-        buildReel(innerKeyword, keywords, finalKeywordIndex, 1800);
-        buildReel(innerTrait, traits, finalTraitIndex, 2400);
-        buildCombinationReel(innerPersonal, finalSexuality, finalGender, relationship[finalRelationshipIndex], 2800);
-        buildReel(innerRace, race, finalRaceIndex, 3200);
-        buildReel(innerAlignment, alignment, finalAlignmentIndex, 3600); // Add this line
+        buildReel(innerRace, race, finalRaceIndex, 600);
+        buildReel(innerKeyword, keywords, finalKeywordIndex, 1200);
+        buildReel(innerTrait, traits, finalTraitIndex, 1800);
+        buildCombinationReel(innerPersonal, finalSexuality, finalGender, relationship[finalRelationshipIndex], 2400);
+        buildReel(innerAlignment, alignment, finalAlignmentIndex, 3000); // Add this line
       
         // Update race description when spinning completes
         setTimeout(() => {
           document.getElementById('race-description').textContent = race[finalRaceIndex].description;
           const overlay = document.getElementById('race-details-overlay');
-          overlay.classList.remove('show');
+          overlay.classList.add('show'); // Change this to add instead of remove
           
-          // Add alignment description update
           document.getElementById('alignment-description').textContent = alignment[finalAlignmentIndex].description;
           const alignmentOverlay = document.getElementById('alignment-details-overlay');
-          alignmentOverlay.classList.remove('show');
-        }, 3700); // Increase timeout to account for longer spin
+          alignmentOverlay.classList.add('show');
+        }, 3700);
       
         setTimeout(() => {
           generateButton.disabled = false;
